@@ -1,4 +1,4 @@
-📄 README.md Job Application Autofill Bot 🚀 An AI-powered automation tool that intelligently fills out job applications, generates custom cover letters, and streamlines your job hunting process.
+Job Application Autofill Bot 🚀 An AI-powered automation tool that intelligently fills out job applications, generates custom cover letters, and streamlines your job hunting process.
 
 📚 Features ✍️ Resume Parsing: Automatically extracts important details from your resume.
 
