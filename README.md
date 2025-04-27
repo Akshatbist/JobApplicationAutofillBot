@@ -30,14 +30,13 @@ scikit-learn (TF-IDF keyword extraction)
 
 🚀 Setup Instructions Clone this repository:
 
-bash git clone https://github.com/yourusername/job-application-autofill-bot.git cd job-application-autofill-bot Install dependencies:
+git clone https://github.com/yourusername/job-application-autofill-bot.git cd job-application-autofill-bot 
 
-nginx pip install -r requirements.txt
+Install dependencies:
+pip install -r requirements.txt
 
 Create a .env file:
-
 Inside the root folder, create a file named .env and add:
-
 OPENAI_API_KEY=your-openai-key-here
 
 Run the bot: python main.py
@@ -46,11 +45,9 @@ Run the bot: python main.py
 
 job-application-autofill-bot/ ├── AnswerDatabase.py ├── AnsweringBot.py ├── main.py ├── .env ├── requirements.txt ├── savedResumeAndCV/ ├── README.md └── other project files... 💡 Future Improvements Add support for more job platforms (LinkedIn, Indeed, Workday, etc.)
 
-Chrome Extension for direct form filling
 
 Improved AI resume matching system
 
-OCR support for scanned documents
 
 🤝 Contributing Contributions are welcome! Feel free to submit a pull request or open an issue.
 
