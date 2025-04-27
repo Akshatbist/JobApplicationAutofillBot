@@ -1,0 +1,20 @@
+{
+  "name": "Job Application Autofill Bot",
+  "description": "Automatically fills out job applications using your resume and AI",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "bot_logo.png" 
+  },
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ]
+}
+
+  
