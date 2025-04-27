@@ -2,7 +2,9 @@ Demo Video: https://drive.google.com/file/d/1qn8z51Cp4JDbdD2JaK18khdd9xYmFpiD/vi
 
 Job Application Autofill Bot 🚀 An AI-powered automation tool that intelligently fills out job applications, generates custom cover letters, and streamlines your job hunting process.
 
-📚 Features ✍️ Resume Parsing: Automatically extracts important details from your resume.
+📚 Features 
+
+✍️ Resume Parsing: Automatically extracts important details from your resume.
 
 🧠 AI-Powered Answers: Uses OpenAI to answer application questions smartly.
 
