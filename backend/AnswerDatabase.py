@@ -4,7 +4,6 @@ import chromadb
 class AnswerDatabase():
     
     def __init__(self):
-        # Initialize the database connection and other necessary components
         self.model = SentenceTransformer('all-MiniLM-L6-v2')
         self.chroma_client = chromadb.Client()
 

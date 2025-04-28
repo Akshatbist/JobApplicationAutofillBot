@@ -9,7 +9,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Replace "*" with specific origins for better security
+    allow_origins=["*"],  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -26,8 +26,7 @@ async def root():
 async def scan_resume(file: UploadFile = File(...)):
     global latest_resume_path
     try:
-        #drag and drop resume works differently than just typing file path,
-        #and my bot won't be able to access their local machine for the file path
+
         file_content = await file.read()
         pdf_reader = PdfReader(BytesIO(file_content))
         text = ""
@@ -54,21 +53,13 @@ async def scan_resume(file: UploadFile = File(...)):
         return {"status": "error", "message": str(e)}
 
 
-#make it so that user has to put it url
-#figure out how to ask the questions in the chrome extension
 @app.post("/scan_question")
 async def scan_question():
     global latest_resume_path
     try:
         print("Received request for /scan_question")
         url = input("Type or paste url:")
-        #data = {"url": "https://job-boards.greenhouse.io/chime/jobs/7744620002?gh_jid=7744620002"}
         data = {"url": url.strip()}
-        '''
-        url = data.get("url")
-        if not url:
-            return {"status": "error", "message": "URL is required"}
-        '''
         url = data["url"]
         print(f"Scanning questions from URL: {url}")
 
@@ -83,18 +74,4 @@ async def scan_question():
 
 
 
-
-#Main Fixes
-#TODO: Make sure chrome extension doesn't shutdown when tabs are switched
-#TODO: Let user choose site url by being on the sit instead of hardcoded url
-#TODO:Make the user answer the additional questions in the chrome extension 
-#and store it (Maybe have them make an account)
-#TODO: Make sure the extension only takes in pdf
-#TODO: Use some sort of nlp or ai to make sure users are answering 
-#with expected answers for additional questions
-#TODO:Maybe get rid of the press enter to exit
-#TODO: Don't terminate and save progress if user switches tabs
-
-
-#maybe implement a token system?
 

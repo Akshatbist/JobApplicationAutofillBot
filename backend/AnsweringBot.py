@@ -24,13 +24,6 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
-#once inside apply now(will be done manually for now), work on a better autofiller than simplify that generates a cover letter as well
-
-#make it a chrome extension
-#get answers from resume, then makes the user fill in questions that it doesn't know the answer to so it can automatically fill it later
-#rag application
-
-#Using Greenhouse Layout to build this, might not work with other platforms
 
 class AnsweringBot():
     def __init__(self):
@@ -39,7 +32,6 @@ class AnsweringBot():
          self.db = AnswerDatabase()
          self.options = Options()
          self.driver = None
-         #Store this as an env variable later
          self.client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
     def initialize_driver(self):
@@ -105,10 +97,6 @@ class AnsweringBot():
     
     def scan_question(self, website_url, save_path):
         try:
-            #ask all the variables here and pass them in llm
-            
-            #how do i make sure the users are only answering whats expected
-            #Use some sort of nlp or ai to make sure users are answering with expected answers
             howDidYouHear = input("How did you hear about this job? (e.g., LinkedIn, Referral, etc.): ").strip()
 
             eligibleToWork = input("Are you eligible to work in the US? (Yes/No): ").strip()
@@ -315,7 +303,6 @@ class AnsweringBot():
                     else:
                         print(f"❌ No NLP match found for '{question}' ➡️ '{answer}'")
                         self.db.store_qa(question, "PENDING_USER_INPUT")
-                #this exception is always getting triggered but the try back is working
                 except Exception as e:
                     pass
       
@@ -412,7 +399,6 @@ class AnsweringBot():
         final_answer = response.choices[0].message.content.strip()
         normal_final_answer = unicodedata.normalize('NFKD', final_answer).encode('ascii', 'ignore').decode('ascii')
         print(f"🤖 LLM Cover Letter:\n {normal_final_answer}")
-        #TODO: Convert the text from the final answer into a pdf and save it to local machine
         pdf = FPDF()
         pdf.set_auto_page_break(auto=True, margin=15)
         pdf.set_margins(left=10, top=10, right=10)
@@ -425,11 +411,7 @@ class AnsweringBot():
         full_path = os.path.join("C:/Users/aksha/ALL_PROJECTS/Mass_Apply/backend", "CV.pdf")
         pdf.output(full_path)
         print(f"✅ PDF saved to: {full_path}")
-        #TODO: Additional improvements to the cover letter like mentioning the company name, and their location
 
-        #When building this for users, will need to store pdf in database 
-
-#TODO: Make sure that the bot is submiting the resume that you are uploading into chrome extension
     def handle_file_uploads(self, save_path):
         try:
            
@@ -445,7 +427,7 @@ class AnsweringBot():
 
             if upload_cover_letter:
                 self.cover_letter_generator()
-                time.sleep(10)  # Wait for file to be written
+                time.sleep(10)  
 
                 print("📄 Uploading cover letter...")
                 self.driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", upload_cover_letter)
